@@ -64,18 +64,18 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col border border-[#DCE8ED]">
+      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col border border-[#D8E4DC]">
         {/* Header */}
-        <div className="bg-[#173C4D] text-white px-6 py-5 flex items-center justify-between border-b border-[#256079]/50">
+        <div className="bg-[#233D34] text-white px-6 py-5 flex items-center justify-between">
           <div>
-            <span className="text-[10px] tracking-widest uppercase text-[#DFC27D] font-semibold">
+            <span className="text-[10px] tracking-widest uppercase text-emerald-300 font-semibold">
               Réservation directe en ligne
             </span>
             <h3 className="font-serif text-xl font-bold">White Palace Hôtel</h3>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition cursor-pointer"
+            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition"
           >
             <X className="w-4 h-4" />
           </button>
@@ -85,26 +85,26 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
         <div className="p-6 overflow-y-auto flex-1">
           {isSuccess ? (
             <div className="text-center py-8 space-y-4">
-              <div className="w-16 h-16 bg-[#EBF3F6] text-[#256079] rounded-full flex items-center justify-center mx-auto border border-[#DCE8ED]">
+              <div className="w-16 h-16 bg-emerald-100 text-[#233D34] rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h4 className="font-serif text-2xl font-bold text-[#173C4D]">
+              <h4 className="font-serif text-2xl font-bold text-[#233D34]">
                 Demande de réservation confirmée !
               </h4>
-              <p className="text-sm text-[#536E7B] max-w-md mx-auto">
+              <p className="text-sm text-[#5A7268] max-w-md mx-auto">
                 Merci {fullName || 'cher client'}, votre réservation avec la référence{' '}
-                <span className="font-bold text-[#256079]">{bookingRef}</span> pour la{' '}
-                <span className="font-semibold text-[#173C4D]">{currentRoom.title}</span> a bien été enregistrée.
+                <span className="font-bold text-[#233D34]">{bookingRef}</span> pour la{' '}
+                <span className="font-semibold">{currentRoom.title}</span> a bien été enregistrée.
                 Un email de confirmation vous a été adressé à {email || 'votre adresse'}.
               </p>
-              <div className="p-4 bg-[#F8FAFC] rounded-xl text-left max-w-md mx-auto text-xs space-y-1.5 border border-[#DCE8ED]">
+              <div className="p-4 bg-[#F7FAF8] rounded-xl text-left max-w-md mx-auto text-xs space-y-1.5 border border-[#E2EAE5]">
                 <div><strong>Séjour :</strong> du {checkIn} au {checkOut} ({nights} nuit{nights > 1 ? 's' : ''})</div>
                 <div><strong>Voyageurs :</strong> {adults} adulte(s), {children} enfant(s)</div>
                 <div><strong>Montant estimé :</strong> {totalPrice.toLocaleString('fr-FR')} Ar</div>
               </div>
               <button
                 onClick={handleReset}
-                className="mt-6 px-8 py-3 rounded-full bg-[#256079] text-white font-semibold text-sm hover:bg-[#1D4F64] transition shadow-xs cursor-pointer"
+                className="mt-6 px-8 py-3 rounded-full bg-[#233D34] text-white font-semibold text-sm hover:bg-[#1A2E27] transition shadow"
               >
                 Fermer
               </button>
@@ -113,7 +113,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Room Selection */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-[#C59A3D] mb-2">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-[#4D6D63] mb-2">
                   Choisir la catégorie de chambre
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -124,16 +124,16 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                         type="button"
                         key={room.id}
                         onClick={() => setRoomId(room.id)}
-                        className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between cursor-pointer ${
+                        className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between ${
                           isSelected
-                            ? 'border-[#256079] bg-[#EBF3F6] ring-2 ring-[#256079]/20'
-                            : 'border-gray-200 hover:border-[#256079]/40 bg-white'
+                            ? 'border-[#233D34] bg-[#EDF2EE] ring-2 ring-[#233D34]/20'
+                            : 'border-gray-200 hover:border-[#233D34]/40 bg-white'
                         }`}
                       >
-                        <span className="font-medium text-xs text-[#173C4D] truncate">
+                        <span className="font-medium text-xs text-[#233D34] truncate">
                           {room.title}
                         </span>
-                        <span className="text-[11px] font-bold text-[#256079] mt-1">
+                        <span className="text-[11px] font-bold text-[#233D34] mt-1">
                           {room.price.toLocaleString('fr-MG')} Ar
                         </span>
                       </button>
@@ -143,7 +143,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
               </div>
 
               {/* Selected Room Details Preview */}
-              <div className="flex items-center gap-3.5 p-3 rounded-xl bg-[#F8FAFC] border border-[#DCE8ED]">
+              <div className="flex items-center gap-3.5 p-3 rounded-xl bg-[#F7FAF8] border border-[#E2EAE5]">
                 <img
                   src={currentRoom.images[0]}
                   alt={currentRoom.title}
@@ -151,10 +151,10 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                 />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
-                    <h5 className="font-bold text-sm text-[#173C4D]">{currentRoom.title}</h5>
-                    <span className="text-xs font-bold text-[#256079]">{currentRoom.price.toLocaleString('fr-MG')} Ar / nuit</span>
+                    <h5 className="font-bold text-sm text-[#233D34]">{currentRoom.title}</h5>
+                    <span className="text-xs font-bold text-[#233D34]">{currentRoom.price.toLocaleString('fr-MG')} Ar / nuit</span>
                   </div>
-                  <p className="text-[11px] text-[#536E7B] flex items-center gap-2 mt-0.5">
+                  <p className="text-[11px] text-[#5A7268] flex items-center gap-2 mt-0.5">
                     <Maximize2 className="w-3.5 h-3.5" />
                     <span>{currentRoom.surface} m²</span>
                     <span>•</span>
@@ -168,7 +168,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
               {/* Dates & Guests */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#173C4D] mb-1">
+                  <label className="block text-xs font-semibold text-[#4D6D63] mb-1">
                     Date d'arrivée
                   </label>
                   <div className="relative">
@@ -178,13 +178,13 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                       required
                       value={checkIn}
                       onChange={(e) => setCheckIn(e.target.value)}
-                      className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                      className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#233D34]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#173C4D] mb-1">
+                  <label className="block text-xs font-semibold text-[#4D6D63] mb-1">
                     Date de départ
                   </label>
                   <div className="relative">
@@ -194,7 +194,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                       required
                       value={checkOut}
                       onChange={(e) => setCheckOut(e.target.value)}
-                      className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                      className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#233D34]"
                     />
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
               {/* Guests Counters */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-[#173C4D] mb-1">
+                  <label className="block text-xs font-semibold text-[#4D6D63] mb-1">
                     Adultes
                   </label>
                   <div className="relative">
@@ -211,7 +211,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                     <select
                       value={adults}
                       onChange={(e) => setAdults(Number(e.target.value))}
-                      className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079] bg-white"
+                      className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#233D34] bg-white"
                     >
                       <option value={1}>1 Adulte</option>
                       <option value={2}>2 Adultes</option>
@@ -222,13 +222,13 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#173C4D] mb-1">
+                  <label className="block text-xs font-semibold text-[#4D6D63] mb-1">
                     Enfants
                   </label>
                   <select
                     value={children}
                     onChange={(e) => setChildren(Number(e.target.value))}
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079] bg-white"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#233D34] bg-white"
                   >
                     <option value={0}>0 Enfant</option>
                     <option value={1}>1 Enfant</option>
@@ -251,7 +251,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                       placeholder="Ex: Jean Dupont"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                      className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#233D34]"
                     />
                   </div>
                   <div>
@@ -264,7 +264,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                       placeholder="+261 34 00 000 00"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                      className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#233D34]"
                     />
                   </div>
                 </div>
@@ -279,7 +279,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                     placeholder="votre.email@exemple.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#233D34]"
                   />
                 </div>
 
@@ -292,27 +292,27 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                     placeholder="Heure d'arrivée prévue, préférences..."
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 focus:outline-none focus:border-[#233D34]"
                   />
                 </div>
               </div>
 
               {/* Price Calculation Summary */}
-              <div className="p-4 rounded-xl bg-[#EBF3F6] border border-[#DCE8ED] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-4 rounded-xl bg-[#EDF2EE] border border-[#D8E4DC] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <span className="text-xs text-[#536E7B]">
+                  <span className="text-xs text-[#4D6D63]">
                     Total ({nights} nuit{nights > 1 ? 's' : ''})
                   </span>
-                  <div className="font-serif text-lg font-bold text-[#256079]">
+                  <div className="font-serif text-lg font-bold text-[#233D34]">
                     {totalPrice.toLocaleString('fr-FR')} Ar
                   </div>
                 </div>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded-full bg-[#256079] hover:bg-[#1D4F64] text-white font-semibold text-xs tracking-wider uppercase transition flex items-center gap-2 shadow-xs cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-[#233D34] hover:bg-[#1A2E27] text-white font-semibold text-xs tracking-wider uppercase transition flex items-center gap-2 shadow"
                 >
                   <span>Confirmer la réservation</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#DFC27D]" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
 

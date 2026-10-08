@@ -5,37 +5,23 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-handwriting: "Caveat", cursive;
   
-  /* Palette White Palace: #256079 (Bleu signature), Blanc et Doré */
-  --color-brand-primary: #256079;
-  --color-brand-dark: #173C4D;
-  --color-brand-darker: #112A36;
-  --color-brand-accent: #347794;
-  --color-brand-light: #F8FAFC;
-  --color-brand-tint: #EBF3F6;
-  --color-brand-strip: #F2F7F9;
+  --color-brand-forest: #233D34;
+  --color-brand-dark: #1E352F;
+  --color-brand-sage: #4D6D63;
+  --color-brand-mint: #D8E4DC;
+  --color-brand-light: #F7FAF8;
+  --color-brand-strip: #EDF2EE;
   --color-brand-card: #FFFFFF;
-  --color-brand-border: #DCE8ED;
-  --color-brand-footer: #173C4D;
-  --color-brand-rooftop: #1A4355;
-  
-  /* Accents dorés */
-  --color-brand-gold: #C59A3D;
-  --color-brand-gold-bright: #D4AF37;
-  --color-brand-gold-warm: #E2B158;
-  --color-brand-gold-light: #FDF9F0;
-  --color-brand-gold-border: #E8D9B5;
-
-  /* Rétrocompatibilité alias de marque */
-  --color-brand-forest: #256079;
-  --color-brand-sage: #347794;
-  --color-brand-mint: #E2EEF3;
+  --color-brand-border: #E2EAE5;
+  --color-brand-footer: #2A4745;
+  --color-brand-rooftop: #324F4D;
 }
 
 @layer base {
   body {
     font-family: var(--font-sans);
-    background-color: #F8FAFC;
-    color: #173C4D;
+    background-color: #F7FAF8;
+    color: #233D34;
     overflow-x: hidden;
   }
   

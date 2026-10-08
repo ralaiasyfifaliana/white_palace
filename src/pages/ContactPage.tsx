@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { HOTEL_INFO, FAQ_ITEMS, RESTAURANT_INTERIOR_IMAGE } from '../data/hotelData';
+import { HOTEL_INFO, FAQ_ITEMS, HOTEL_EXTERIOR_IMAGE, RESTAURANT_INTERIOR_IMAGE } from '../data/hotelData';
+import { BotanicalLeaf } from '../components/BotanicalLeaf';
+import { HeroWaveMask } from '../components/HeroWaveMask';
 import { Reveal } from '../components/Reveal';
 import {
   PhoneCall,
@@ -42,180 +44,113 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
   };
 
   return (
-    <div className="relative overflow-hidden bg-[#F8FAFC] text-[#173C4D] pt-20 sm:pt-24 space-y-16 sm:space-y-20 lg:space-y-24">
-      {/* 1. HERO SECTION (100% FULL WIDTH with ORGANIC SVG PATH) */}
-      <section className="w-full relative bg-[#EAF2F6] overflow-hidden">
-        <div className="w-full relative min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex flex-col lg:flex-row items-stretch">
-          
-          {/* Left Column: Text & Badges */}
-          <div className="relative z-20 w-full lg:w-[48%] xl:w-[45%] px-8 sm:px-14 md:px-20 lg:px-24 xl:px-32 py-10 sm:py-14 lg:py-16 xl:py-20 flex flex-col justify-center space-y-5 lg:space-y-6">
-            <Reveal direction="down" delay={100}>
-              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-[#C59A3D]">
-                NOUS CONTACTER
-              </span>
-            </Reveal>
-
-            <Reveal direction="up" delay={200}>
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl xl:text-[54px] font-bold text-[#173C4D] leading-[1.08] tracking-tight">
-                Une question ? Notre équipe<br />
-                est là pour vous répondre
-              </h1>
-            </Reveal>
-
-            <Reveal direction="up" delay={300}>
-              <p className="text-[13px] sm:text-sm text-[#536E7B] font-light leading-relaxed max-w-[440px]">
-                Que ce soit pour une réservation de chambre, une table en rooftop ou toute autre information, n'hésitez pas à nous contacter. Nous serons ravis de vous accompagner.
-              </p>
-            </Reveal>
-
-            {/* 3 Pillars */}
-            <Reveal direction="up" delay={400}>
-              <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-1 max-w-[460px]">
-                <div className="flex flex-col items-start space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-white/90 text-[#256079] flex items-center justify-center shadow-2xs border border-[#DCE8ED]">
-                    <PhoneCall className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] sm:text-xs text-[#173C4D] font-medium leading-tight">
-                    Réponse rapide<br className="hidden sm:inline" /> sous 24h
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-start space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-white/90 text-[#256079] flex items-center justify-center shadow-2xs border border-[#DCE8ED]">
-                    <Headphones className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] sm:text-xs text-[#173C4D] font-medium leading-tight">
-                    Équipe disponible<br className="hidden sm:inline" /> et à l'écoute
-                  </span>
-                </div>
-
-                <div className="flex flex-col items-start space-y-2">
-                  <div className="w-10 h-10 rounded-full bg-white/90 text-[#256079] flex items-center justify-center shadow-2xs border border-[#DCE8ED]">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] sm:text-xs text-[#173C4D] font-medium leading-tight">
-                    Votre satisfaction<br className="hidden sm:inline" /> garantie
-                  </span>
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Button */}
-            <Reveal direction="up" delay={500}>
-              <div className="pt-2">
-                <button
-                  onClick={() => {
-                    const el = document.getElementById('contact-form-section');
-                    el?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="group inline-flex items-center gap-2.5 bg-[#256079] hover:bg-[#1D4F64] text-white text-[13px] sm:text-sm font-medium px-6 py-2.5 rounded-full shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer"
-                >
-                  <span>Envoyer un message</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#DFC27D]" />
-                </button>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Right Column: Organic S-curve blob clipped photo with exact SVG paths */}
-          <div className="relative w-full lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[56%] xl:w-[58%] h-[360px] sm:h-[450px] lg:h-full z-10">
-            {/* Cursive script in top right */}
-            <div className="absolute top-6 sm:top-10 right-6 sm:right-12 z-20 pointer-events-none text-right">
-              <span className="font-serif italic text-white text-2xl sm:text-3xl lg:text-4xl tracking-wide drop-shadow-md block font-normal -rotate-2 select-none">
-                À votre écoute,<br />
-                <span className="relative inline-block text-[#DFC27D]">
-                  24h/24 &amp; 7j/7
-                  <svg className="absolute -bottom-1 left-0 w-full h-2 text-[#DFC27D]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                    <path d="M 0 5 Q 50 10 100 3" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-                  </svg>
-                </span>
-              </span>
-            </div>
-
-            <svg
-              className="w-full h-full"
-              viewBox="550 -66 730 424"
-              preserveAspectRatio="none"
-            >
-              <defs>
-                <clipPath id="contactOuterWaveClip">
-                  <path d="M 1280 358 L 1280 -66 L 646.628 -66 L 646.628 -64.184 C 630.307 28.101 614.873 77.785 596.277 145.423 C 578.698 209.365 533.464 276.376 557.905 356.284 L 721.901 356.623 L 1280 358 Z" />
-                </clipPath>
-
-                <clipPath id="contactHeroBlobClip">
-                  <path d="M 1280 358 L 1280 -66 L 572.702 -66 L 572.702 -62.691 C 572.702 -36.164 641.066 83.009 650.304 137.695 C 660.324 168.813 661.881 210.903 660.29 237.456 C 656.625 298.638 676.362 343.694 717.099 355.801 L 717.099 358 L 1280 358 Z" />
-                </clipPath>
-              </defs>
-
-              {/* 1. Continuation of the photo on the outer wave with soft blue overlay */}
-              <g clipPath="url(#contactOuterWaveClip)">
-                <image
-                  href="/nouvelles_photos/accueil_1.jpg"
-                  x="550"
-                  y="-66"
-                  width="730"
-                  height="424"
-                  preserveAspectRatio="xMidYMid slice"
-                  opacity="0.45"
-                />
-                <rect x="550" y="-66" width="730" height="424" fill="#A7C5D2" opacity="0.3" />
-              </g>
-
-              {/* 2. Main opaque photo clipped by inner path */}
-              <g clipPath="url(#contactHeroBlobClip)">
-                <image
-                  href="/nouvelles_photos/accueil_1.jpg"
-                  x="550"
-                  y="-66"
-                  width="730"
-                  height="424"
-                  preserveAspectRatio="xMidYMid slice"
-                />
-              </g>
-            </svg>
-          </div>
+    <div className="relative overflow-hidden bg-[#F7FAF8] pt-20 sm:pt-24">
+      {/* 1. HERO SECTION - FULL BLEED */}
+      <section className="relative w-full h-auto md:h-[600px] lg:h-[650px] bg-white flex flex-col md:flex-row">
+        <div className="w-full h-64 md:hidden relative">
+          <img
+            src={HOTEL_EXTERIOR_IMAGE}
+            alt="Contact White Palace Hôtel"
+            className="w-full h-full object-cover"
+          />
         </div>
+
+        <div className="hidden md:block absolute inset-0 w-full h-full">
+          <img
+            src={HOTEL_EXTERIOR_IMAGE}
+            alt="Contact White Palace Hôtel"
+            className="w-full h-full object-cover object-right"
+          />
+        </div>
+
+        <div className="relative w-full md:w-[50%] lg:w-[45%] h-full bg-[#F7FAF8] flex flex-col justify-center px-6 sm:px-10 lg:pl-16 lg:pr-12 py-12 md:py-0 z-10">
+          <HeroWaveMask fill="#F7FAF8" />
+          <BotanicalLeaf className="top-4 left-0 -translate-x-1/4 -z-10" opacity={0.22} />
+
+          <Reveal className="space-y-6 relative z-10" delay={200}>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4D6D63]">
+              NOUS CONTACTER
+            </span>
+
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#233D34] leading-tight">
+              Une question ? Notre équipe est là pour vous répondre
+            </h1>
+
+            <p className="text-sm sm:text-base text-[#5A7268] leading-relaxed max-w-md">
+              Que ce soit pour une réservation, une demande d'information ou une suggestion, n'hésitez
+              pas à nous contacter. Nous serons ravis de vous accompagner et de rendre votre séjour
+              inoubliable.
+            </p>
+
+            <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-[#E2EAE5] bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <PhoneCall className="w-4 h-4 text-[#233D34]" />
+                </div>
+                <span className="text-[10px] font-medium text-[#4D6D63] leading-tight">Réponse rapide<br />sous 24h</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-[#E2EAE5] bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <Headphones className="w-4 h-4 text-[#233D34]" />
+                </div>
+                <span className="text-[10px] font-medium text-[#4D6D63] leading-tight">Une équipe disponible<br />et à l'écoute</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full border border-[#E2EAE5] bg-white shadow-sm flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#233D34]" />
+                </div>
+                <span className="text-[10px] font-medium text-[#4D6D63] leading-tight">Votre satisfaction<br />est notre priorité</span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal direction="left" delay={500} className="hidden md:block absolute top-[20%] right-[10%] transform -rotate-6 z-20 pointer-events-none">
+          <span className="font-script text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] text-4xl tracking-wide">
+            Nous serons ravis de vous accueillir !
+          </span>
+        </Reveal>
       </section>
 
       {/* 2. NOS COORDONNÉES */}
-      <section className="py-4 sm:py-6 relative">
+      <section className="py-16 sm:py-20 bg-[#F7FAF8] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal direction="left" delay={100} className="max-w-2xl mb-12">
-            <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-[#C59A3D]">
+          <Reveal className="max-w-2xl mb-12">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4D6D63]">
               NOS COORDONNÉES
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#173C4D] mt-1">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#233D34] mt-1">
               Où nous trouver ?
             </h2>
-            <p className="text-sm text-[#536E7B] mt-2">
+            <p className="text-sm text-[#5A7268] mt-2">
               Notre hôtel est idéalement situé au cœur d'Antananarivo, facilement accessible et proche
-              des principaux centres d'affaires et d'intérêt de la ville.
+              des principaux centres d'intérêt de la ville.
             </p>
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             {/* Left: Contact Info List */}
-            <Reveal direction="left" delay={150} className="space-y-6">
+            <Reveal direction="left" className="space-y-6">
               <div className="flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#EBF3F6] text-[#256079] flex items-center justify-center shrink-0 border border-[#DCE8ED]">
+                <div className="w-10 h-10 rounded-full bg-[#EDF2EE] text-[#233D34] flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-xs text-[#173C4D]">Adresse</h4>
-                  <p className="text-xs text-[#536E7B] mt-0.5">{HOTEL_INFO.address}</p>
-                  <span className="text-[11px] text-gray-400">(à proximité immédiate du centre)</span>
+                  <h4 className="font-semibold text-xs text-[#233D34]">Adresse</h4>
+                  <p className="text-xs text-[#5A7268] mt-0.5">{HOTEL_INFO.address}</p>
+                  <span className="text-[11px] text-gray-400">(à proximité du centre-ville)</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#EBF3F6] text-[#256079] flex items-center justify-center shrink-0 border border-[#DCE8ED]">
+                <div className="w-10 h-10 rounded-full bg-[#EDF2EE] text-[#233D34] flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-xs text-[#173C4D]">Téléphone</h4>
+                  <h4 className="font-semibold text-xs text-[#233D34]">Téléphone</h4>
                   <a
                     href={`tel:${HOTEL_INFO.phone.replace(/\s+/g, '')}`}
-                    className="text-xs text-[#256079] hover:text-[#173C4D] block mt-0.5 font-medium transition-colors"
+                    className="text-xs text-[#5A7268] hover:text-[#233D34] block mt-0.5 font-medium"
                   >
                     {HOTEL_INFO.phone}
                   </a>
@@ -223,14 +158,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
               </div>
 
               <div className="flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#EBF3F6] text-[#256079] flex items-center justify-center shrink-0 border border-[#DCE8ED]">
+                <div className="w-10 h-10 rounded-full bg-[#EDF2EE] text-[#233D34] flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-xs text-[#173C4D]">Email</h4>
+                  <h4 className="font-semibold text-xs text-[#233D34]">Email</h4>
                   <a
                     href={`mailto:${HOTEL_INFO.email}`}
-                    className="text-xs text-[#256079] hover:text-[#173C4D] block mt-0.5 font-medium transition-colors"
+                    className="text-xs text-[#5A7268] hover:text-[#233D34] block mt-0.5 font-medium"
                   >
                     {HOTEL_INFO.email}
                   </a>
@@ -238,66 +173,66 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
               </div>
 
               <div className="flex items-start gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#EBF3F6] text-[#256079] flex items-center justify-center shrink-0 border border-[#DCE8ED]">
+                <div className="w-10 h-10 rounded-full bg-[#EDF2EE] text-[#233D34] flex items-center justify-center shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-xs text-[#173C4D]">Horaires de réception</h4>
-                  <p className="text-xs text-[#536E7B] mt-0.5">{HOTEL_INFO.receptionHours}</p>
+                  <h4 className="font-semibold text-xs text-[#233D34]">Horaires de réception</h4>
+                  <p className="text-xs text-[#5A7268] mt-0.5">{HOTEL_INFO.receptionHours}</p>
                 </div>
               </div>
             </Reveal>
 
             {/* Center: Map Graphic Card */}
-            <Reveal delay={250} direction="up" className="rounded-2xl overflow-hidden border border-[#DCE8ED] bg-[#F2F7F9] p-6 flex flex-col items-center justify-between text-center relative aspect-[4/3] shadow-xs">
-              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#256079_1px,transparent_1px)] [background-size:16px_16px]" />
+            <Reveal delay={150} className="rounded-2xl overflow-hidden border border-[#E2EAE5] bg-[#EDF2EE] p-6 flex flex-col items-center justify-between text-center relative aspect-[4/3] shadow-md">
+              <div className="absolute inset-0 opacity-40 bg-[radial-gradient(#233D34_1px,transparent_1px)] [background-size:16px_16px]" />
 
-              <div className="relative z-10 text-[11px] font-mono text-[#536E7B] uppercase tracking-wider">
-                Ambatoroka • Antananarivo
+              <div className="relative z-10 text-[11px] font-mono text-gray-500 uppercase tracking-wider">
+                Tsaralalàna • Antananarivo
               </div>
 
-              <div className="relative z-10 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-[#DCE8ED] max-w-[220px]">
-                <div className="w-8 h-8 rounded-full bg-[#256079] text-white flex items-center justify-center mx-auto mb-1.5 shadow">
-                  <Navigation className="w-4 h-4 text-[#DFC27D]" />
+              <div className="relative z-10 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-[#D8E4DC] max-w-[220px]">
+                <div className="w-8 h-8 rounded-full bg-[#233D34] text-white flex items-center justify-center mx-auto mb-1.5 shadow">
+                  <Navigation className="w-4 h-4" />
                 </div>
-                <h5 className="font-serif font-bold text-xs text-[#173C4D]">
+                <h5 className="font-serif font-bold text-xs text-[#233D34]">
                   White Palace Hôtel
                 </h5>
-                <p className="text-[10px] text-gray-500">Lot VB 12, Ambatoroka</p>
+                <p className="text-[10px] text-gray-500">Tsaralalàna, Tananarive</p>
               </div>
 
               <div className="relative z-10">
                 <a
-                  href="https://maps.google.com/?q=Lot+VB+12+Ambatoroka+Antananarivo"
+                  href="https://maps.google.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#256079] hover:bg-[#1D4F64] text-white text-[11px] font-semibold transition shadow-xs cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#233D34] hover:bg-[#1A2E27] text-white text-[11px] font-semibold transition shadow"
                 >
                   <span>Voir sur Google Maps</span>
-                  <ArrowRight className="w-3 h-3 text-[#DFC27D]" />
+                  <ArrowRight className="w-3 h-3" />
                 </a>
               </div>
             </Reveal>
 
             {/* Right: Accès Facile */}
-            <Reveal delay={350} direction="right" className="bg-white rounded-2xl p-6 border border-[#DCE8ED] shadow-xs space-y-4">
-              <h4 className="font-serif text-base font-bold text-[#173C4D]">Accès facile</h4>
-              <div className="space-y-3.5 text-xs text-[#536E7B]">
+            <Reveal delay={300} direction="right" className="bg-[#F7FAF8] rounded-2xl p-6 border border-[#E2EAE5] space-y-4">
+              <h4 className="font-serif text-base font-bold text-[#233D34]">Accès facile</h4>
+              <div className="space-y-3.5 text-xs text-[#4D6D63]">
                 <div className="flex items-center gap-3">
-                  <Car className="w-4 h-4 text-[#256079] shrink-0" />
+                  <Car className="w-4 h-4 text-[#233D34] shrink-0" />
                   <span>À 15 min de l'Aéroport international d'Ivato</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Car className="w-4 h-4 text-[#256079] shrink-0" />
-                  <span>À 10 min du centre-ville historique</span>
+                  <Car className="w-4 h-4 text-[#233D34] shrink-0" />
+                  <span>À 10 min du centre-ville</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Building2 className="w-4 h-4 text-[#256079] shrink-0" />
-                  <span>Proche des commerces et ministères</span>
+                  <Building2 className="w-4 h-4 text-[#233D34] shrink-0" />
+                  <span>Proche des commerces et sites touristiques</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <ParkingCircle className="w-4 h-4 text-[#256079] shrink-0" />
-                  <span>Parking privé sécurisé 24h/24</span>
+                  <ParkingCircle className="w-4 h-4 text-[#233D34] shrink-0" />
+                  <span>Parking sécurisé sur place</span>
                 </div>
               </div>
             </Reveal>
@@ -306,55 +241,57 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
       </section>
 
       {/* 3. ENVOYEZ-NOUS UN MESSAGE */}
-      <section id="contact-form-section" className="py-4 sm:py-6 relative">
+      <section className="py-16 sm:py-20 bg-white relative">
+        <BotanicalLeaf className="top-8 right-0 translate-x-1/4" flip={true} opacity={0.2} />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left: Photo + script */}
-            <Reveal direction="left" delay={150} className="lg:col-span-5 relative">
-              <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] relative border border-[#DCE8ED]">
+            <Reveal direction="left" className="lg:col-span-5 relative">
+              <div className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] relative">
                 <img
                   src={RESTAURANT_INTERIOR_IMAGE}
                   alt="Réception White Palace"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#112A36]/85 via-[#173C4D]/30 to-transparent flex items-end p-6">
-                  <span className="font-['Caveat'] text-[#DFC27D] text-2xl sm:text-3xl leading-snug">
-                    Un message et nous vous répondons avec plaisir dans les plus brefs délais !
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent flex items-end p-6">
+                  <span className="font-script text-white text-2xl sm:text-3xl leading-snug">
+                    Un message et nous vous répondons au plus vite !
                   </span>
                 </div>
               </div>
             </Reveal>
 
             {/* Right: Contact Form */}
-            <Reveal delay={250} direction="right" className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-[#DCE8ED] shadow-sm">
+            <Reveal delay={150} className="lg:col-span-7 bg-[#F7FAF8] rounded-3xl p-8 sm:p-10 border border-[#E2EAE5] shadow-xl">
               <div>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#C59A3D]">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4D6D63]">
                   ENVOYEZ-NOUS UN MESSAGE
                 </span>
-                <h2 className="font-serif text-3xl font-bold text-[#173C4D] mt-1">
+                <h2 className="font-serif text-3xl font-bold text-[#233D34] mt-1">
                   Nous écrire
                 </h2>
-                <p className="text-xs text-[#536E7B] mt-1">
-                  Remplissez le formulaire ci-dessous, notre équipe de conciergerie vous répondra avec soin.
+                <p className="text-xs text-[#5A7268] mt-1">
+                  Remplissez le formulaire ci-dessous, nous vous répondrons dans les plus brefs délais.
                 </p>
               </div>
 
               {formSent ? (
                 <div className="text-center py-10 space-y-3">
-                  <CheckCircle2 className="w-12 h-12 text-[#256079] mx-auto" />
-                  <h4 className="font-serif text-xl font-bold text-[#173C4D]">
+                  <CheckCircle2 className="w-12 h-12 text-[#233D34] mx-auto" />
+                  <h4 className="font-serif text-xl font-bold text-[#233D34]">
                     Message envoyé avec succès !
                   </h4>
-                  <p className="text-xs text-[#536E7B]">
+                  <p className="text-xs text-[#5A7268]">
                     Merci {name}, votre demande concernant « {subject} » a bien été transmise à notre équipe.
-                    Une réponse personnalisée vous parviendra très rapidement par email ({email}).
+                    Une réponse vous parviendra très rapidement par email ({email}).
                   </p>
                   <button
                     onClick={() => {
                       setFormSent(false);
                       setMessage('');
                     }}
-                    className="mt-4 px-6 py-2.5 rounded-full bg-[#256079] hover:bg-[#1D4F64] text-white text-xs font-semibold tracking-wider uppercase transition-colors cursor-pointer"
+                    className="mt-4 px-6 py-2.5 rounded-full bg-[#233D34] text-white text-xs font-semibold tracking-wider uppercase"
                   >
                     Envoyer un autre message
                   </button>
@@ -363,20 +300,20 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
                 <form onSubmit={handleFormSubmit} className="space-y-4 mt-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-[#173C4D] mb-1">
+                      <label className="block text-xs font-semibold text-[#4D6D63] mb-1">
                         Nom complet *
                       </label>
                       <input
                         type="text"
                         required
-                        placeholder="Votre nom"
+                        placeholder="Jean Dupont"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-[#DCE8ED] bg-[#F8FAFC] focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                        className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-gray-300 bg-white focus:outline-none focus:border-[#233D34]"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-[#173C4D] mb-1">
+                      <label className="block text-xs font-semibold text-[#4D6D63] mb-1">
                         Email *
                       </label>
                       <input
@@ -385,31 +322,31 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
                         placeholder="votre.email@domaine.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-[#DCE8ED] bg-[#F8FAFC] focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                        className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-gray-300 bg-white focus:outline-none focus:border-[#233D34]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#173C4D] mb-1">
+                    <label className="block text-xs font-semibold text-[#4D6D63] mb-1">
                       Objet de votre message *
                     </label>
                     <select
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
-                      className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-[#DCE8ED] bg-[#F8FAFC] focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                      className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-gray-300 focus:outline-none focus:border-[#233D34] bg-white"
                     >
                       <option>Demande d’information générale</option>
                       <option>Réservation de chambre</option>
                       <option>Réservation restaurant / banquet</option>
-                      <option>Service conciergerie &amp; transfert</option>
+                      <option>Service conciergerie & transfert</option>
                       <option>Partenariat d'entreprise</option>
                       <option>Autre demande</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#173C4D] mb-1">
+                    <label className="block text-xs font-semibold text-[#4D6D63] mb-1">
                       Votre message *
                     </label>
                     <textarea
@@ -418,16 +355,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
                       placeholder="Comment pouvons-nous vous aider ?"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-[#DCE8ED] bg-[#F8FAFC] focus:outline-none focus:border-[#256079] focus:ring-1 focus:ring-[#256079]"
+                      className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-gray-300 bg-white focus:outline-none focus:border-[#233D34]"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#256079] hover:bg-[#1D4F64] text-white text-xs font-semibold tracking-wider uppercase transition shadow-xs active:scale-95 cursor-pointer"
+                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#233D34] hover:bg-[#1A2E27] text-white text-xs font-semibold tracking-wider uppercase transition shadow active:scale-95"
                   >
                     <span>Envoyer le message</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#DFC27D]" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </form>
               )}
@@ -437,39 +374,39 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
       </section>
 
       {/* 4. QUESTIONS FRÉQUENTES */}
-      <section className="py-4 sm:py-6">
+      <section className="py-16 sm:py-20 bg-[#F7FAF8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Left: Accordion */}
-            <Reveal direction="left" delay={150} className="lg:col-span-8">
-              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-[#C59A3D]">
+            <Reveal className="lg:col-span-8">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-[#4D6D63]">
                 QUESTIONS FRÉQUENTES
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#173C4D] mt-1">
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#233D34] mt-1">
                 Vous avez une autre question ?
               </h2>
-              <p className="text-sm text-[#536E7B] mt-1 mb-8">
-                Retrouvez ici les réponses aux questions les plus couramment posées par nos hôtes.
+              <p className="text-sm text-[#5A7268] mt-1 mb-8">
+                Retrouvez ici les réponses aux questions les plus courantes.
               </p>
 
-              <div className="divide-y divide-[#DCE8ED] border-y border-[#DCE8ED]">
+              <div className="divide-y divide-gray-200 border-y border-gray-200">
                 {FAQ_ITEMS.map((faq) => {
                   const isOpen = openFaq === faq.id;
                   return (
                     <div key={faq.id} className="py-4">
                       <button
                         onClick={() => toggleFaq(faq.id)}
-                        className="w-full flex items-center justify-between text-left gap-4 group cursor-pointer"
+                        className="w-full flex items-center justify-between text-left gap-4 group"
                       >
-                        <span className="text-sm font-semibold text-[#173C4D] group-hover:text-[#256079] transition-colors">
+                        <span className="text-sm font-semibold text-[#233D34] group-hover:text-[#1A2E27] transition">
                           {faq.question}
                         </span>
-                        <span className="w-7 h-7 rounded-full bg-[#EBF3F6] text-[#256079] flex items-center justify-center shrink-0 border border-[#DCE8ED]">
+                        <span className="w-7 h-7 rounded-full bg-[#EDF2EE] text-[#233D34] flex items-center justify-center shrink-0">
                           {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
                         </span>
                       </button>
                       {isOpen && (
-                        <p className="mt-3 text-xs text-[#536E7B] leading-relaxed pr-8 animate-fadeIn">
+                        <p className="mt-3 text-xs text-[#5A7268] leading-relaxed pr-8 animate-fadeIn">
                           {faq.answer}
                         </p>
                       )}
@@ -479,43 +416,41 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
               </div>
             </Reveal>
 
-            {/* Right: Dark Blue Callout Card */}
-            <Reveal delay={250} direction="right" className="lg:col-span-4 bg-[#173C4D] text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col justify-between text-center relative overflow-hidden border border-[#256079]/50">
+            {/* Right: Dark Green Callout Card */}
+            <Reveal delay={200} direction="right" className="lg:col-span-4 bg-[#233D34] text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col justify-between text-center relative overflow-hidden">
               <div className="space-y-4">
                 <div className="flex items-center justify-center gap-3">
-                  <div className="text-[#DFC27D]">
-                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
-                      <path
-                        d="M24 4L28 14H38L30 20L33 30L24 24L15 30L18 20L10 14H20L24 4Z"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M12 36C12 36 17 32 24 32C31 32 36 36 36 36"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M15 42C15 42 19 39 24 39C29 39 33 42 33 42"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
+                  <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9 text-white">
+                    <path
+                      d="M24 4L28 14H38L30 20L33 30L24 24L15 30L18 20L10 14H20L24 4Z"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M12 36C12 36 17 32 24 32C31 32 36 36 36 36"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M15 42C15 42 19 39 24 39C29 39 33 42 33 42"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  </svg>
                   <div className="text-left">
-                    <div className="font-serif text-base font-bold tracking-[0.15em] uppercase leading-tight text-white">
+                    <div className="font-serif text-base font-bold tracking-[0.15em] uppercase leading-tight">
                       WHITE PALACE
                     </div>
-                    <div className="font-serif italic text-[11px] text-[#DFC27D] leading-none tracking-wider">
+                    <div className="font-serif italic text-[11px] text-white/80 leading-none tracking-wider">
                       Hôtel
                     </div>
                   </div>
                 </div>
-                <div className="pt-4 font-['Caveat'] text-3xl text-[#DFC27D] leading-tight">
+                <div className="pt-4 font-script text-3xl text-emerald-200 leading-tight">
                   À très bientôt au White Palace Hôtel !
                 </div>
               </div>
@@ -523,7 +458,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenRoomBooking }) =
               <div className="mt-8">
                 <button
                   onClick={() => onOpenRoomBooking()}
-                  className="w-full py-3.5 rounded-full border border-[#DFC27D] text-[#DFC27D] hover:bg-[#DFC27D] hover:text-[#173C4D] text-xs font-semibold tracking-wider uppercase transition shadow-xs cursor-pointer"
+                  className="w-full py-3.5 rounded-full border border-white text-white hover:bg-white hover:text-[#233D34] text-xs font-semibold tracking-wider uppercase transition shadow"
                 >
                   Réserver maintenant
                 </button>
